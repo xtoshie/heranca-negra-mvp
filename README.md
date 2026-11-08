@@ -1,37 +1,31 @@
-# 🛡️ Sistema de Gestão e Divulgação - Grupo de Capoeira Herança Negra
+# Herança Negra Musicalidade — MVP acadêmico
 
-Repositório oficial para o desenvolvimento do MVP (Minimum Viable Product) do sistema acadêmico voltado para o grupo de capoeira **Herança Negra**, sob a tutela e parceria institucional do **Mestre Odésio de Jesus Ferras**.
+Projeto acadêmico de apoio ao ensino da musicalidade e dos fundamentos históricos da capoeira do grupo Herança Negra, vinculado ao ODS 4 (Educação de Qualidade).
 
----
+## Escopo mínimo
+- RF01: organizar e listar o acervo por categoria (áudio e texto).
+- RF02: reproduzir arquivos MP3 locais (funcionalidade planejada; interface ainda não implementada).
+- RF03: exibir textos históricos (interface ainda não implementada).
+- RF04: administração de conteúdos com autenticação (funcionalidade futura).
 
-## 📋 Sobre o Projeto
-Este projeto tem como objetivo principal estruturar uma solução tecnológica para apoiar a organização interna, o registro histórico, a divulgação de eventos e a gestão de atividades acadêmicas e culturais do grupo de capoeira Herança Negra. A ferramenta busca conectar alunos, mestres e simpatizantes, preservando a memória e facilitando o acesso às informações da comunidade cultural.
+## Implementação atual
+O módulo `src/main.py` implementa a **camada de dados**, com SQLite, cadastro, consulta e filtragem de metadados. Não há aplicativo Android, player ou interface Kivy prontos nesta versão. Os testes automatizados validam somente as operações implementadas; não comprovam reprodução de áudio, acessibilidade ou testes com usuários.
 
----
+## Como testar
+Requer Python 3.10+.
 
-## 🎯 Objetivos do MVP
-* **Gestão de Alunos e Graduações:** Acompanhamento do desenvolvimento dos praticantes dentro da hierarquia da capoeira.
-* **Calendário de Eventos e Aulas:** Divulgação de rodas, batizados, trocas de cordas e treinos.
-* **Acervo Histórico e Cultural:** Preservação da trajetória do Mestre Odésio de Jesus Ferras e do grupo Herança Negra.
-* **Canal de Comunicação:** Aproximação entre a liderança do grupo e os participantes.
+```bash
+python -m pip install pytest pytest-cov
+python -m pytest tests/ -v
+python -m pytest tests/ --cov=src --cov-report=term-missing
+```
 
----
+O GitHub Actions executa os testes a cada push e pull request. A cobertura deve ser informada com base no relatório efetivamente gerado, nunca estimada.
 
-## 🛠️ Tecnologias Utilizadas
-* **Linguagem Principal:** Python
-* **Controle de Versão:** Git e GitHub
-* **Ambiente de Desenvolvimento:** GitHub Codespaces / VS Code
+## Estrutura
+- `src/main.py`: núcleo de dados do acervo.
+- `tests/test_main.py`: testes do núcleo.
+- `.github/workflows/ci.yml`: integração contínua.
+- `docs/requisitos.md`: requisitos e limites do MVP.
 
----
-
-## 📂 Estrutura do Repositório
-```text
-├── docs/             # Documentação do projeto, diagramas e requisitos
-├── src/              # Código-fonte principal da aplicação
-├── assets/           # Imagens, logotipos e materiais visuais
-├── README.md         # Documentação descritiva do projeto
-└── .gitignore        # Arquivos ignorados pelo controle de versão
-
-📜 Licença
-Este projeto é desenvolvido para fins estritamente acadêmicos e educacionais no âmbito do curso superior de Análise e Desenvolvimento de Sistemas.
-
+Projeto de Software — Experiência Prática 3.
